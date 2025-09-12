@@ -8,9 +8,10 @@ function plugin_version_forceapproval() {
         'version'        => '1.0.0',
         'author'         => 'Richard Gabriel',
         'license'        => 'GPLv2+',
-        'minGlpiVersion' => '10.0.0'
+        'homepage'       => 'https://github.com/Richardtidi/PluginGLPIForceApproval'
     ];
 }
+
 
 function plugin_forceapproval_install() { return true; }
 function plugin_forceapproval_uninstall() { return true; }
