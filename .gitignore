@@ -1,0 +1,23 @@
+# Windows / IDE
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Logs / temporários
+*.log
+*.cache
+*.bak
+
+# Builds
+dist/
+tmp/
+cache/
+
+# Composer (se usar)
+vendor/
+composer.lock
+
+# Segredos
+.env
