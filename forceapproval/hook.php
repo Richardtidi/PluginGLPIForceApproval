@@ -84,15 +84,27 @@ function plugin_forceapproval_force_redirect() {
     }
 
     // --- FLUXO ISSUE (FormCreator) ---
+    // Bloquear listagem de chamados (issue.php) quando houver pendências
     if (strpos($path, '/plugins/formcreator/front/issue.php') !== false
-        || strpos($path, '/plugins/formcreator/front/issue.form.php') !== false) {
+        && strpos($request_uri, 'from_forceapproval=1') === false) {
+
+        $target_url = plugin_forceapproval_get_pending_action((int)$_SESSION['glpiID']);
+        if ($target_url !== false) {
+            $_SESSION['forceapproval_redirect_url'] = $target_url;
+            $redirect_url = PLUGIN_FORCEAPPROVAL_WEBDIR . '/front/popup.php';
+            echo "<script>window.location.href=" . json_encode($redirect_url) . ";</script>";
+            exit();
+        }
+    }
+
+    // Permitir acesso ao formulário de aprovação/recusa (issue.form.php)
+    if (strpos($path, '/plugins/formcreator/front/issue.form.php') !== false) {
         $_SESSION['forceapproval_in_issue'] = true;
         return;
     }
 
     if (!empty($_SESSION['forceapproval_in_issue'])) {
         $safe = [
-            '/plugins/formcreator/front/issue.php',
             '/plugins/formcreator/front/issue.form.php',
             '/front/itilfollowup.form.php',
             '/front/ticketsatisfaction.form.php',
