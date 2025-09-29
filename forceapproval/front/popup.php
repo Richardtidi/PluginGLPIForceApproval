@@ -32,9 +32,10 @@ echo "<!DOCTYPE html>
 </head>
 <body>
     <div class='container'>
-        <h1>⚠️ ATENÇÃO - PENDÊNCIAS ENCONTRADAS</h1>
-        <p>Pedimos a gentileza de responder à pesquisa de satisfação. 
-        Sua opinião é muito importante para aprimorarmos nosso atendimento.
+        <h1>⚠️ ATENÇÃO</h1>
+        <h2>PENDÊNCIAS ENCONTRADAS</h2>
+        <p>Pedimos a gentileza de aprovar a solução do chamado e responder à pesquisa de satisfação.</p>
+        <p>Sua opinião é muito importante para aprimorarmos nosso atendimento.</p>
         <p>Para continuar utilizando o sistema, é <strong>OBRIGATÓRIO</strong> resolver as pendências.</p>
         <p><strong> Agradecemos pela colaboração. — Equipe de Suporte.</strong></p>
         <button class='btn' onclick='resolvePendency()'>✅ Resolver Pendências</button>
